@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 
 const teamMembers = [
 	{
+		name: "Victoria von Schmettow",
+		role: "Co-Founder",
+		image: "./vicky.JPG",
+		linkedin: "https://www.linkedin.com/in/victoria-von-schmettow/",
+		email: "mailto:victoria.schmettow@trans-load.de",
+	},
+	{
 		name: "Nils Börner",
 		role: "Co-Founder",
 		image: "./nils.jpg",
@@ -34,6 +41,7 @@ export default function Team({ language }: { language: "en" | "de" }) {
 
 	return (
 		<section id="team" className="pt-10 relative overflow-hidden">
+			<div className="container mx-auto px-4 relative z-10 max-w-5xl">
 			<div className="container mx-auto px-4 relative z-10 max-w-5xl">
 				{/* Section Header */}
 				<div className="text-center mb-8">
