@@ -5,13 +5,6 @@ import { Button } from "@/components/ui/button";
 
 const teamMembers = [
 	{
-		name: "Victoria von Schmettow",
-		role: "Co-Founder",
-		image: "./vicky.JPG",
-		linkedin: "https://www.linkedin.com/in/victoria-von-schmettow/",
-		email: "mailto:victoria.schmettow@trans-load.de",
-	},
-	{
 		name: "Nils Börner",
 		role: "Co-Founder",
 		image: "./nils.jpg",
@@ -51,7 +44,7 @@ export default function Team({ language }: { language: "en" | "de" }) {
 				</div>
 
 				{/* Team Members Grid */}
-				<div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 justify-items-center">
+				<div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-8 justify-items-center">
 					{teamMembers.map((member, index) => (
 						<div
 							key={index}
