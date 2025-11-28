@@ -6,5 +6,8 @@ node_modules/
 /out/
 next-env.d.ts
 
+# MacOs Finder files
+.DS_Store
+
 # vercel
 .vercel
