@@ -7,14 +7,14 @@ const teamMembers = [
 	{
 		name: "Nils Börner",
 		role: "Co-Founder",
-		image: "./nils.jpg",
+		image: "./nils.jpeg",
 		linkedin: "https://www.linkedin.com/in/boenils/",
 		email: "mailto:nils.boerner@trans-load.de",
 	},
 	{
 		name: "Jago Wahl-Schwentker",
 		role: "Co-Founder",
-		image: "./jago.jpg",
+		image: "./jago.jpeg",
 		linkedin: "https://www.linkedin.com/in/jagowahl/",
 		email: "mailto:jago.wahl-schwentker@trans-load.de",
 	},
@@ -33,7 +33,7 @@ export default function Team({ language }: { language: "en" | "de" }) {
 	const { title } = content[language];
 
 	return (
-		<section id="team" className="pt-10 relative overflow-hidden">
+		<section id="team" className="py-10 relative overflow-hidden">
 			<div className="container mx-auto px-4 relative z-10 max-w-5xl">
 				{/* Section Header */}
 				<div className="text-center mb-8">
@@ -58,7 +58,7 @@ export default function Team({ language }: { language: "en" | "de" }) {
 									alt={member.name}
 									width={96}
 									height={96}
-									className="relative rounded-full mx-auto border-2 sm:border-4 border-gray-700 transition-colors duration-300 w-24 h-24 sm:w-40 sm:h-40"
+									className="relative rounded-full mx-auto border-2 sm:border-4 border-gray-700 transition-colors duration-300 w-24 h-24 sm:w-40 sm:h-40 object-cover"
 								/>
 							</div>
 

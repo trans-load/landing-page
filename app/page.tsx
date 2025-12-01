@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import HowItWorks from "./components/HowItWorks";
+import Benefits from "./components/Benefits";
 import Team from "./components/Team";
 import GetInTouch from "./components/GetInTouch";
 import Partners from "./components/Partners";
@@ -19,9 +21,11 @@ export default function Home() {
 			<Header language={language} setLanguage={setLanguage} />
 			<main>
 				<Hero language={language} />
-				<Partners />
+				<HowItWorks language={language} />
+				<Benefits language={language} />
 				<Team language={language} />
 				<GetInTouch />
+				<Partners />
 				<Footer language={language} />
 			</main>
 		</div>
