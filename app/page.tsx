@@ -23,9 +23,9 @@ export default function Home() {
 				<Hero language={language} />
 				<HowItWorks language={language} />
 				<Benefits language={language} />
-				<Partners />
 				<Team language={language} />
 				<GetInTouch />
+				<Partners />
 				<Footer language={language} />
 			</main>
 		</div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Partners() {
 	return (
-		<section className="pt-10">
+		<section className="py-5 bg-orange-600">
 			<div className="container mx-auto px-6">
 				<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-4xl mx-auto items-center">
 					<Image
