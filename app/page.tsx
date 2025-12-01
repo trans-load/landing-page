@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import HowItWorks from "./components/HowItWorks";
+import HowItWorks from "./components/HowItWorksClean";
 import Benefits from "./components/Benefits";
 import Team from "./components/Team";
 import GetInTouch from "./components/GetInTouch";
