@@ -17,31 +17,26 @@ const content = {
 		steps: [
 			{
 				title: "Surveillance Cameras",
-				subtitle: "Capture images",
 				icon: Camera,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "Pallet Image",
-				subtitle: "High-res imagery",
 				icon: ImageIcon,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "transload AI",
-				subtitle: "Spatial AI processing",
 				icon: Brain,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "3D Model",
-				subtitle: "Accurate 3D reconstruction",
 				icon: Box,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "Measurement Data",
-				subtitle: "Correct and reliable",
 				icon: CheckCircle,
 				color: "from-orange-400 to-orange-600",
 			},
@@ -52,31 +47,26 @@ const content = {
 		steps: [
 			{
 				title: "Überwachungskameras",
-				subtitle: "Bilder erfassen",
 				icon: Camera,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "Palettenbild",
-				subtitle: "Hochauflösende Bilder",
 				icon: ImageIcon,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "transload KI",
-				subtitle: "Räumliche KI-Verarbeitung",
 				icon: Brain,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "3D-Modell",
-				subtitle: "Exakte 3D-Rekonstruktion",
 				icon: Box,
 				color: "from-orange-400 to-orange-600",
 			},
 			{
 				title: "Messdaten",
-				subtitle: "Korrekt und zuverlässig",
 				icon: CheckCircle,
 				color: "from-orange-400 to-orange-600",
 			},
@@ -153,7 +143,6 @@ export default function HowItWorksClean({
 										<p className="text-lg font-semibold mt-4 text-white">
 											{s.title}
 										</p>
-										<p className="text-sm text-gray-300 mt-2">{s.subtitle}</p>
 									</motion.div>
 									{i < steps.length - 1 && (
 										<div className="hidden lg:flex items-center justify-center w-12">
