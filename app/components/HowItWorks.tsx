@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
 	Camera,
 	Image as ImageIcon,
@@ -9,6 +9,7 @@ import {
 	Box,
 	ChevronRight,
 	CheckCircle,
+	ChevronDown,
 } from "lucide-react";
 
 const content = {
@@ -80,24 +81,9 @@ export default function HowItWorksClean({
 	language: "en" | "de";
 }) {
 	const { title, steps } = content[language];
-	const ref = useRef<HTMLDivElement | null>(null);
-	const inView = useInView(ref, { once: true, margin: "-120px" });
-	const [activeStep, setActiveStep] = useState<number>(0);
-	const [completed, setCompleted] = useState<number[]>([]);
-
-	useEffect(() => {
-		if (!inView) return;
-		const interval = setInterval(() => {
-			setActiveStep((prev) => {
-				setCompleted((c) => (c.includes(prev) ? c : [...c, prev]));
-				return (prev + 1) % steps.length;
-			});
-		}, 2000);
-		return () => clearInterval(interval);
-	}, [inView, steps.length]);
 
 	return (
-		<section className="py-20 bg-gray-900 overflow-hidden" ref={ref}>
+		<section className="py-20 bg-gray-900 overflow-hidden">
 			<div className="container mx-auto px-4">
 				<motion.div
 					initial={{ opacity: 0, y: 18 }}
@@ -117,11 +103,11 @@ export default function HowItWorksClean({
 							{title}
 						</h2>
 					</div>
-					<div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+
+					{/* Desktop view - horizontal */}
+					<div className="hidden lg:flex items-top justify-between gap-6">
 						{steps.map((s, i) => {
 							const Icon = s.icon as any;
-							const isActive = i === activeStep;
-							const done = completed.includes(i);
 							return (
 								<React.Fragment key={i}>
 									<motion.div
@@ -129,35 +115,48 @@ export default function HowItWorksClean({
 										whileInView={{ opacity: 1, y: 0 }}
 										viewport={{ once: true }}
 										transition={{ duration: 0.35, delay: i * 0.06 }}
-										className="flex-1 flex flex-col items-center text-center"
+										className="flex-1 flex flex-col items-center text-center group cursor-pointer"
 									>
-										<motion.div
-											animate={
-												isActive ? { scale: [1, 1.12, 1] } : { scale: 1 }
-											}
-											transition={{ duration: 0.7 }}
-											className={`w-16 h-16 rounded-xl bg-gradient-to-r ${s.color} flex items-center justify-center shadow-lg`}
-										>
-											<Icon className="w-7 h-7 text-white" />
-										</motion.div>
-										<p className="text-lg font-semibold mt-4 text-white">
+										<div className="w-12 h-12 rounded-xl bg-white/8 backdrop-blur-sm border border-white/10 flex items-center justify-center shadow transition-all duration-300 group-hover:bg-white/12 group-hover:border-orange-400/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-orange-400/20">
+											<Icon className="w-6 h-6 text-orange-400 transition-colors duration-300" />
+										</div>
+										<p className="text-lg font-semibold mt-4 text-white/90 transition-colors duration-300 group-hover:text-white">
 											{s.title}
 										</p>
 									</motion.div>
 									{i < steps.length - 1 && (
-										<div className="hidden lg:flex items-center justify-center w-12">
-											<motion.div
-												initial={{ opacity: done ? 1 : 0.35, x: -4 }}
-												animate={
-													isActive || done
-														? { opacity: 1, x: 0 }
-														: { opacity: 0.35, x: -4 }
-												}
-												transition={{ duration: 0.35 }}
-												className="text-orange-400"
-											>
-												<ChevronRight className="w-6 h-6" />
-											</motion.div>
+										<div className="flex items-center justify-center w-12 group cursor-pointer">
+											<ChevronRight className="w-6 h-6 text-orange-400" />
+										</div>
+									)}
+								</React.Fragment>
+							);
+						})}
+					</div>
+
+					{/* Mobile view - vertical with icon on left */}
+					<div className="flex flex-col lg:hidden gap-4">
+						{steps.map((s, i) => {
+							const Icon = s.icon as any;
+							return (
+								<React.Fragment key={i}>
+									<motion.div
+										initial={{ opacity: 0, x: -12 }}
+										whileInView={{ opacity: 1, x: 0 }}
+										viewport={{ once: true }}
+										transition={{ duration: 0.35, delay: i * 0.06 }}
+										className="flex items-center gap-4 group cursor-pointer"
+									>
+										<div className="w-12 h-12 rounded-xl bg-white/8 backdrop-blur-sm border border-white/10 flex items-center justify-center shadow transition-all duration-300 group-hover:bg-white/12 group-hover:border-orange-400/30 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-orange-400/20 flex-shrink-0">
+											<Icon className="w-6 h-6 text-orange-400 transition-colors duration-300" />
+										</div>
+										<p className="text-lg font-semibold text-white/90 transition-colors duration-300 group-hover:text-white">
+											{s.title}
+										</p>
+									</motion.div>
+									{i < steps.length - 1 && (
+										<div className="flex items-center justify-center py-1 group cursor-pointer">
+											<ChevronDown className="w-6 h-6 text-orange-400" />
 										</div>
 									)}
 								</React.Fragment>
