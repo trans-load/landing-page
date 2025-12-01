@@ -83,7 +83,8 @@ export default function HowItWorksClean({
 	const { title, steps } = content[language];
 
 	return (
-		<section className="py-20 bg-gray-900 overflow-hidden">
+		<section className="py-10 bg-gray-900
+		 overflow-hidden">
 			<div className="container mx-auto px-4">
 				<motion.div
 					initial={{ opacity: 0, y: 18 }}

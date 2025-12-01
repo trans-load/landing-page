@@ -29,7 +29,7 @@ export default function Benefits({ language }: { language: "en" | "de" }) {
 	const { title, benefitList } = content[language];
 	const icons = [FileText, Truck, BarChart2, ShieldCheck];
 	return (
-		<section className="py-20 bg-gray-900 overflow-hidden">
+		<section className="py-10 bg-gray-800 overflow-hidden">
 			{/* Background decorative elements */}
 			<div className="absolute inset-0 opacity-30">
 				<div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl"></div>
