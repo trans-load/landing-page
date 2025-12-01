@@ -4,14 +4,16 @@ import { CheckCircle } from "lucide-react";
 
 const benefits = {
 	en: [
-		"Reduce operational costs from the first month, as fewer drivers are needed in the cross docking warehouse",
-		"Increase warehouse efficiency and throughput",
-		"Minimize forklift idle time and unnecessary movement",
+		"Accurate invoicing with customers and partners",
+		"Optimized dispatching and truck loading through precise data",
+		"Reduced operational costs with automated measurement processes",
+		"GDPR-compliant by design, ensuring data privacy and secure processing",
 	],
 	de: [
-		"Reduzierung der Betriebskosten ab dem ersten Monat, da weniger Fahrer auf dem Umschlaglager eingesetzt werden müssen",
-		"Steigerung der Lagereffizienz und des Durchsatzes",
-		"Minimierung von Gabelstapler-Leerlaufzeiten und unnötigen Bewegungen",
+		"Fundierte Abrechnung mit Kunden und Partnern",
+		"Optimierte Disposition durch exakte Daten",
+		"Optimierte Ladeplanung und reduzierte Betriebskosten durch automatisierte Vermessung",
+		"Datenschutzkonform nach DSGVO – für höchste Sicherheit und Privatsphäre",
 	],
 };
 
@@ -20,9 +22,7 @@ export default function Benefits({ language }) {
 		<section className="py-20 bg-gray-800">
 			<div className="container mx-auto px-4">
 				<h2 className="text-3xl font-bold text-center mb-12 text-orange-500">
-					{language === "en"
-						? "Benefits for Your Business"
-						: "Vorteile für Ihr Unternehmen"}
+					{language === "en" ? "Your benefit" : "Vorteile"}
 				</h2>
 				<div className="grid grid-cols-1 gap-8">
 					{benefits[language].map((benefit, index) => (

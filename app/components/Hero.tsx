@@ -4,12 +4,13 @@ import { ArrowDown, Zap } from "lucide-react";
 export default function Hero({ language }: { language: "en" | "de" }) {
 	const content = {
 		en: {
-			title: "The next generation of intralogistics",
-			description: "Join the warehousing revolution.",
+			title: "We bring spatial AI to freight forwarding",
+			description:
+				"Precise freight measurements – without additional hardware",
 		},
 		de: {
-			title: "Die nächste Generation der Intralogistik",
-			description: "Revolutionieren Sie Ihre Lagerabläufe.",
+			title: "Die KI für Ihr Umschlaglager",
+			description: "Exakte Frachtvermessung – ganz ohne zusätzliche Hardware",
 		},
 	};
 
@@ -29,14 +30,13 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 					<div className="backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 px-8 py-10 w-full text-center">
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
 							<span className="text-white">
-								{title.split(" ").slice(0, -2).join(" ")}
+								{title.split(" ").slice(0, -3).join(" ")}
 							</span>
 							<br />
 							<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-								{title.split(" ").slice(-2).join(" ")}
+								{title.split(" ").slice(-3).join(" ")}
 							</span>
-						</h1>
-
+						</h1>{" "}
 						<p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
 							{description}
 						</p>
