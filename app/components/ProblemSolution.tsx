@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
 	TrendingDown,
 	Truck,
@@ -203,7 +203,7 @@ export default function ProblemSolution({
 
 	const variants = {
 		enter: (dir: number) => ({
-			x: dir > 0 ? 1000 : -1000,
+			x: dir > 0 ? 300 : -300,
 			opacity: 0,
 		}),
 		center: {
@@ -213,7 +213,7 @@ export default function ProblemSolution({
 		},
 		exit: (dir: number) => ({
 			zIndex: 0,
-			x: dir < 0 ? 1000 : -1000,
+			x: dir < 0 ? 300 : -300,
 			opacity: 0,
 		}),
 	};
@@ -247,38 +247,44 @@ export default function ProblemSolution({
 					{/* Mobile Carousel */}
 					<div className="lg:hidden">
 						<div className="relative h-96 flex items-center justify-center max-w-2xl mx-auto">
-							<motion.div
-								key={page}
+							<AnimatePresence
+								initial={false}
 								custom={direction}
-								variants={variants}
-								initial="enter"
-								animate="center"
-								exit="exit"
-								transition={{
-									duration: 0.3,
-									ease: "easeInOut",
-								}}
-								drag="x"
-								dragElastic={1}
-								dragConstraints={{ left: 0, right: 0 }}
-								onDragEnd={(e, { offset }) => {
-									const swipeThreshold = 100;
-									if (offset.x < -swipeThreshold) {
-										paginate(1);
-									} else if (offset.x > swipeThreshold) {
-										paginate(-1);
-									}
-								}}
-								className="absolute w-full px-4 flex justify-center"
+								mode="popLayout"
 							>
-								<div className="h-80 w-full max-w-sm">
-									<FlipCard
-										pair={pairs[currentIndex]}
-										index={currentIndex}
-										language={language}
-									/>
-								</div>
-							</motion.div>
+								<motion.div
+									key={page}
+									custom={direction}
+									variants={variants}
+									initial="enter"
+									animate="center"
+									exit="exit"
+									transition={{
+										x: { type: "spring", stiffness: 400, damping: 35 },
+										opacity: { duration: 0.15 },
+									}}
+									drag="x"
+									dragElastic={1}
+									dragConstraints={{ left: 0, right: 0 }}
+									onDragEnd={(e, { offset }) => {
+										const swipeThreshold = 100;
+										if (offset.x < -swipeThreshold) {
+											paginate(1);
+										} else if (offset.x > swipeThreshold) {
+											paginate(-1);
+										}
+									}}
+									className="absolute w-full px-4 flex justify-center"
+								>
+									<div className="h-80 w-full max-w-sm">
+										<FlipCard
+											pair={pairs[currentIndex]}
+											index={currentIndex}
+											language={language}
+										/>
+									</div>
+								</motion.div>
+							</AnimatePresence>
 
 							{/* Navigation Buttons */}
 							<button
