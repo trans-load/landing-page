@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
 	TrendingDown,
 	Truck,
@@ -191,31 +191,14 @@ export default function ProblemSolution({
 	const defaultBg = useSectionBg(sectionIndex);
 	const finalBg = bgColor || defaultBg;
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const [[page, direction], setPage] = useState([0, 0]);
 
-	const paginate = (newDirection: number) => {
-		const newIndex = currentIndex + newDirection;
-		const wrappedIndex =
-			newIndex < 0 ? pairs.length - 1 : newIndex >= pairs.length ? 0 : newIndex;
-		setPage([wrappedIndex, newDirection]);
-		setCurrentIndex(wrappedIndex);
-	};
-
-	const variants = {
-		enter: (dir: number) => ({
-			x: dir > 0 ? 300 : -300,
-			opacity: 0,
-		}),
-		center: {
-			zIndex: 1,
-			x: 0,
-			opacity: 1,
-		},
-		exit: (dir: number) => ({
-			zIndex: 0,
-			x: dir < 0 ? 300 : -300,
-			opacity: 0,
-		}),
+	const handleSwipe = (direction: number) => {
+		setCurrentIndex((prev) => {
+			const next = prev + direction;
+			if (next < 0) return pairs.length - 1;
+			if (next >= pairs.length) return 0;
+			return next;
+		});
 	};
 
 	return (
@@ -230,9 +213,11 @@ export default function ProblemSolution({
 						transition={{ duration: 0.6 }}
 						className="text-center mb-12"
 					>
-						<h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
-							"Wake up logistics folks, it's 2026!"
-						</h3>
+                        <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                            {language === "en"
+                                ? "Wrong dimensions = lost revenue"
+                                : "Falsche Abmessungen = verlorenes Geld"}
+                        </h3>
 					</motion.div>
 
 					{/* Cards Grid - Desktop */}
@@ -246,56 +231,45 @@ export default function ProblemSolution({
 
 					{/* Mobile Carousel */}
 					<div className="lg:hidden">
-						<div className="relative h-96 flex items-center justify-center max-w-2xl mx-auto">
-							<AnimatePresence
-								initial={false}
-								custom={direction}
-								mode="popLayout"
+						<div className="relative h-96 flex items-center justify-center max-w-2xl mx-auto overflow-hidden">
+							<motion.div
+								key={currentIndex}
+								initial={{ x: 300, opacity: 0 }}
+								animate={{ x: 0, opacity: 1 }}
+								exit={{ x: -300, opacity: 0 }}
+								transition={{ type: "spring", stiffness: 300, damping: 30 }}
+								drag="x"
+								dragConstraints={{ left: 0, right: 0 }}
+								dragElastic={0.2}
+								onDragEnd={(_, { offset, velocity }) => {
+									const swipe = offset.x * velocity.x;
+									if (swipe < -500 || offset.x < -50) {
+										handleSwipe(1);
+									} else if (swipe > 500 || offset.x > 50) {
+										handleSwipe(-1);
+									}
+								}}
+								className="absolute w-full px-4 flex justify-center"
 							>
-								<motion.div
-									key={page}
-									custom={direction}
-									variants={variants}
-									initial="enter"
-									animate="center"
-									exit="exit"
-									transition={{
-										x: { type: "spring", stiffness: 400, damping: 35 },
-										opacity: { duration: 0.15 },
-									}}
-									drag="x"
-									dragElastic={1}
-									dragConstraints={{ left: 0, right: 0 }}
-									onDragEnd={(e, { offset }) => {
-										const swipeThreshold = 100;
-										if (offset.x < -swipeThreshold) {
-											paginate(1);
-										} else if (offset.x > swipeThreshold) {
-											paginate(-1);
-										}
-									}}
-									className="absolute w-full px-4 flex justify-center"
-								>
-									<div className="h-80 w-full max-w-sm">
-										<FlipCard
-											pair={pairs[currentIndex]}
-											index={currentIndex}
-											language={language}
-										/>
-									</div>
-								</motion.div>
-							</AnimatePresence>
+								<div className="h-80 w-full max-w-sm">
+									<FlipCard
+										pair={pairs[currentIndex]}
+										index={currentIndex}
+										language={language}
+									/>
+								</div>
+							</motion.div>
 
 							{/* Navigation Buttons */}
 							<button
-								onClick={() => paginate(-1)}
+								onClick={() => handleSwipe(-1)}
 								className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
 								aria-label="Previous card"
 							>
 								<ChevronLeft className="w-6 h-6 text-white" />
 							</button>
 							<button
-								onClick={() => paginate(1)}
+								onClick={() => handleSwipe(1)}
 								className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
 								aria-label="Next card"
 							>
@@ -307,11 +281,7 @@ export default function ProblemSolution({
 								{pairs.map((_, index) => (
 									<button
 										key={index}
-										onClick={() => {
-											const direction = index > currentIndex ? 1 : -1;
-											setPage([page + direction, direction]);
-											setCurrentIndex(index);
-										}}
+										onClick={() => setCurrentIndex(index)}
 										className={`w-2 h-2 rounded-full transition-all ${
 											index === currentIndex
 												? "bg-white w-6"
