@@ -35,7 +35,8 @@ export default function Benefits({ language }: { language: "en" | "de" }) {
 	const { title, benefitList } = content[language];
 	const icons = [FileText, Truck, BarChart2, ShieldCheck];
 	return (
-		<section className="py-10 overflow-hidden">
+		<section className="py-16 lg:py-20 overflow-hidden bg-black relative">
+			<div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-orange-500/30"></div>
 			{/* Background decorative elements */}
 			<div className="absolute inset-0 opacity-30">
 				<div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl"></div>
@@ -102,15 +103,15 @@ export default function Benefits({ language }: { language: "en" | "de" }) {
 								>
 									{/* Glass card with liquid effect */}
 									<div
-										className={`relative backdrop-blur-sm ${bgOpacityClass} border border-white/10 rounded-2xl p-6 h-full
-														${shadowClass} shadow-black/10 transform lg:${tiltClass} transition-all duration-400
-														hover:shadow-2xl ${hoverScaleClass} hover:-translate-y-1`}
+										className={`relative backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 h-full
+														${shadowClass} shadow-black/30 transform lg:${tiltClass} transition-all duration-400
+														hover:shadow-2xl ${hoverScaleClass} hover:-translate-y-1 before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/5 before:to-transparent before:opacity-50 before:pointer-events-none`}
 									>
 										{/* Inner content */}
 										<div className="relative z-10 flex items-start gap-4">
 											{/* Icon with glass effect */}
 											<div className="flex-shrink-0">
-												<div className="w-12 h-12 rounded-xl bg-white/8 backdrop-blur-sm border border-white/10 flex items-center justify-center shadow transition-all duration-300">
+												<div className="w-12 h-12 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 flex items-center justify-center shadow transition-all duration-300 group-hover:border-orange-500/30">
 													{(() => {
 														const Icon = icons[index] || FileText;
 														return (

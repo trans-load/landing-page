@@ -32,7 +32,8 @@ export default function GetInTouch({ language }: { language: Language }) {
 	}, []);
 
 	return (
-		<section id="meeting" className="pt-14 relative overflow-hidden">
+		<section id="meeting" className="pt-16 lg:pt-20 pb-16 lg:pb-20 relative overflow-hidden bg-black">
+			<div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-orange-500/30"></div>
 			{/* Section Header */}
 			<div className="text-center mb-8">
 				<div className="inline-flex items-center px-4 py-2 bg-orange-400/10 border border-orange-500/20 rounded-full text-orange-500 text-sm font-medium mb-4">
