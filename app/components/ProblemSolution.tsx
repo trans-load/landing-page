@@ -3,15 +3,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-	Zap,
-	CheckCircle2,
-	OctagonAlert,
 	TrendingDown,
 	Truck,
 	HardDrive,
 	Zap as ZapIcon,
 	Gauge,
-	Plug,
+	Code2,
 	ChevronLeft,
 	ChevronRight,
 } from "lucide-react";
@@ -37,33 +34,33 @@ const content: Record<
 		pairs: [
 			{
 				problemIcon: TrendingDown,
-				problemTitle: "Revenue Loss from Inaccurate Data",
+				problemTitle: "Lost Revenue from Poor Data Quality",
 				problemDesc:
 					"Freight Forwarders lose up to 5% of revenue because 25% of freight has missing or wrong dimensioning data.",
 				solutionIcon: ZapIcon,
-				solutionTitle: "Automatic Dimension Detection",
+				solutionTitle: "AI-Powered Dimension Detection",
 				solutionDesc:
-					"The transload AI detects diverging freight dimensioning automatically.",
+					"Our cutting-edge spatial AI uses your existing surveillance cameras to detect freight dimensions automatically and accurately.",
 			},
 			{
 				problemIcon: Truck,
-				problemTitle: "Inefficient Truck Dispatching",
+				problemTitle: "Inefficient Route & Load Planning",
 				problemDesc:
 					"Efficient truck dispatching becomes impossible due to the lack of clean dimensioning data.",
 				solutionIcon: Gauge,
-				solutionTitle: "Optimized Loading Efficiency",
+				solutionTitle: "Smart Load Optimization",
 				solutionDesc:
-					"Clean data enables correct tariffing and highest truck loading efficiency.",
+					"Clean data from your existing camera infrastructure enables correct tariffing and highest truck loading efficiency.",
 			},
 			{
 				problemIcon: HardDrive,
-				problemTitle: "Costly Hardware Integration",
+				problemTitle: "Expensive Hardware Dependencies",
 				problemDesc:
 					"New dimensioning hardware is expensive and complex to integrate.",
-				solutionIcon: Plug,
-				solutionTitle: "Seamless Process Integration",
+				solutionIcon: Code2,
+				solutionTitle: "Software-Only Solution",
 				solutionDesc:
-					"Our solution integrates easily into existing processes – without new hardware.",
+					"Leverage your existing surveillance cameras with spatial AI – no new hardware needed, just intelligent software.",
 			},
 		],
 	},
@@ -71,33 +68,33 @@ const content: Record<
 		pairs: [
 			{
 				problemIcon: TrendingDown,
-				problemTitle: "Umsatzverluste durch ungenaue Daten",
+				problemTitle: "Umsatzverluste durch schlechte Datenqualität",
 				problemDesc:
 					"Speditionen verlieren bis zu 5% ihres Umsatzes, weil 25% der Fracht fehlende oder falsche Abmessungsdaten hat.",
 				solutionIcon: ZapIcon,
-				solutionTitle: "Automatische Dimensionserkennung",
+				solutionTitle: "KI-gestützte Dimensionserkennung",
 				solutionDesc:
-					"Die transload KI erkennt abweichende Frachtabmessungen automatisch.",
+					"Unsere fortschrittliche räumliche KI nutzt Ihre vorhandenen Überwachungskameras, um Frachtabmessungen automatisch und präzise zu erkennen.",
 			},
 			{
 				problemIcon: Truck,
-				problemTitle: "Ineffiziente Tourenplanung",
+				problemTitle: "Ineffiziente Planung & Auslastung",
 				problemDesc:
 					"Effiziente Tourenplanung wird durch mangelnde saubere Vermessungsdaten unmöglich.",
 				solutionIcon: Gauge,
-				solutionTitle: "Optimierte Ladeeffizienz",
+				solutionTitle: "Intelligente Auslastungsoptimierung",
 				solutionDesc:
-					"Saubere Daten ermöglichen korrekte Tarifierung und höchste Ladeeffizienz.",
+					"Saubere Daten aus Ihrer vorhandenen Kamerainfrastruktur ermöglichen korrekte Tarifierung und höchste Ladeeffizienz.",
 			},
 			{
 				problemIcon: HardDrive,
-				problemTitle: "Teure Hardware-Integration",
+				problemTitle: "Teure Hardware-Abhängigkeiten",
 				problemDesc:
 					"Neue Vermessungshardware ist teuer und aufwendig zu integrieren.",
-				solutionIcon: Plug,
-				solutionTitle: "Nahtlose Prozessintegration",
+				solutionIcon: Code2,
+				solutionTitle: "Reine Software-Lösung",
 				solutionDesc:
-					"Unsere Lösung lässt sich einfach in bestehende Prozesse integrieren – ganz ohne neue Hardware.",
+					"Nutzen Sie Ihre vorhandenen Überwachungskameras mit räumlicher KI – keine neue Hardware erforderlich, nur intelligente Software.",
 			},
 		],
 	},
@@ -120,7 +117,8 @@ function FlipCard({
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true }}
 			transition={{ duration: 0.6, delay: index * 0.2 }}
-			onClick={() => setIsFlipped(!isFlipped)}
+			onMouseEnter={() => setIsFlipped(true)}
+			onMouseLeave={() => setIsFlipped(false)}
 			className="h-full cursor-pointer"
 		>
 			<div
@@ -138,7 +136,7 @@ function FlipCard({
 						backfaceVisibility: "hidden",
 					}}
 				>
-					<div className="relative backdrop-blur-sm bg-red-500/5 border border-red-500/20 rounded-2xl p-8 h-full flex flex-col justify-between hover:bg-red-500/10 hover:border-red-500/40 transition-all duration-300">
+					<div className="relative backdrop-blur-sm bg-red-500/5 border border-red-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
 						<div>
 							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full bg-red-500/20 border border-red-500/30">
 								<pair.problemIcon className="w-5 h-5 text-red-400" />
@@ -150,11 +148,6 @@ function FlipCard({
 						<p className="text-gray-100 text-base leading-relaxed">
 							{pair.problemDesc}
 						</p>
-						<div className="mt-4 text-xs text-gray-400">
-							{language === "en"
-								? "Click to reveal solution"
-								: "Klicken um Lösung zu zeigen"}
-						</div>
 					</div>
 				</div>
 
@@ -166,7 +159,7 @@ function FlipCard({
 						transform: "rotateY(180deg)",
 					}}
 				>
-					<div className="relative backdrop-blur-sm bg-orange-500/5 border border-orange-500/20 rounded-2xl p-8 h-full flex flex-col justify-between hover:bg-orange-500/10 hover:border-orange-500/40 transition-all duration-300">
+					<div className="relative backdrop-blur-sm bg-orange-500/5 border border-orange-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
 						<div>
 							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full bg-orange-500/20 border border-orange-500/30">
 								<pair.solutionIcon className="w-5 h-5 text-orange-400" />
@@ -178,11 +171,6 @@ function FlipCard({
 						<p className="text-gray-100 text-base leading-relaxed">
 							{pair.solutionDesc}
 						</p>
-						<div className="mt-4 text-xs text-gray-400">
-							{language === "en"
-								? "Click to reveal problem"
-								: "Klicken um Problem zu zeigen"}
-						</div>
 					</div>
 				</div>
 			</div>
@@ -206,13 +194,11 @@ export default function ProblemSolution({
 	const [[page, direction], setPage] = useState([0, 0]);
 
 	const paginate = (newDirection: number) => {
-		setPage([page + newDirection, newDirection]);
-		setCurrentIndex((prev) => {
-			const newIndex = prev + newDirection;
-			if (newIndex < 0) return pairs.length - 1;
-			if (newIndex >= pairs.length) return 0;
-			return newIndex;
-		});
+		const newIndex = currentIndex + newDirection;
+		const wrappedIndex =
+			newIndex < 0 ? pairs.length - 1 : newIndex >= pairs.length ? 0 : newIndex;
+		setPage([wrappedIndex, newDirection]);
+		setCurrentIndex(wrappedIndex);
 	};
 
 	const variants = {
@@ -244,16 +230,9 @@ export default function ProblemSolution({
 						transition={{ duration: 0.6 }}
 						className="text-center mb-12"
 					>
-						<h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-							{language === "en"
-								? "Problems & Solutions"
-								: "Probleme & Lösungen"}
-						</h2>
-						<p className="text-gray-300 text-lg">
-							{language === "en"
-								? "Click each card to reveal the solution"
-								: "Klicken Sie auf jede Karte, um die Lösung zu zeigen"}
-						</p>
+						<h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+							"Wake up logistics folks, it's 2026!"
+						</h3>
 					</motion.div>
 
 					{/* Cards Grid - Desktop */}
@@ -276,17 +255,17 @@ export default function ProblemSolution({
 								animate="center"
 								exit="exit"
 								transition={{
-									x: { type: "spring", stiffness: 300, damping: 30 },
-									opacity: { duration: 0.2 },
+									duration: 0.3,
+									ease: "easeInOut",
 								}}
 								drag="x"
 								dragElastic={1}
 								dragConstraints={{ left: 0, right: 0 }}
-								onDragEnd={(e, { offset, velocity }) => {
-									const swipe = Math.abs(offset.x) * velocity.x;
-									if (swipe < -10000) {
+								onDragEnd={(e, { offset }) => {
+									const swipeThreshold = 100;
+									if (offset.x < -swipeThreshold) {
 										paginate(1);
-									} else if (swipe > 10000) {
+									} else if (offset.x > swipeThreshold) {
 										paginate(-1);
 									}
 								}}
@@ -304,14 +283,14 @@ export default function ProblemSolution({
 							{/* Navigation Buttons */}
 							<button
 								onClick={() => paginate(-1)}
-								className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+								className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
 								aria-label="Previous card"
 							>
 								<ChevronLeft className="w-6 h-6 text-white" />
 							</button>
 							<button
 								onClick={() => paginate(1)}
-								className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+								className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
 								aria-label="Next card"
 							>
 								<ChevronRight className="w-6 h-6 text-white" />
