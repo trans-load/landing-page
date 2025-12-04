@@ -137,16 +137,16 @@ function FlipCard({
 						backfaceVisibility: "hidden",
 					}}
 				>
-					<div className="relative backdrop-blur-sm bg-red-900/5 border border-red-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
-						<div>
-							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full bg-red-500/20 border border-red-500/30">
+					<div className="relative backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between shadow-lg shadow-black/30 before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-red-500/10 before:to-transparent before:opacity-50 before:pointer-events-none">
+						<div className="relative z-10">
+							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full backdrop-blur-sm bg-red-500/20 border border-red-500/30">
 								<pair.problemIcon className="w-5 h-5 text-red-400" />
 							</div>
 							<h3 className="text-xl font-semibold text-white mb-4">
 								{pair.problemTitle}
 							</h3>
 						</div>
-						<p className="text-gray-100 text-base leading-relaxed">
+						<p className="text-gray-100 text-base leading-relaxed relative z-10">
 							{pair.problemDesc}
 						</p>
 					</div>
@@ -160,16 +160,16 @@ function FlipCard({
 						transform: "rotateY(180deg)",
 					}}
 				>
-					<div className="relative backdrop-blur-sm bg-green-900/5 border border-green-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
-						<div>
-							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30">
+					<div className="relative backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between shadow-lg shadow-black/30 before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-green-500/10 before:to-transparent before:opacity-50 before:pointer-events-none">
+						<div className="relative z-10">
+							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full backdrop-blur-sm bg-green-500/20 border border-green-500/30">
 								<pair.solutionIcon className="w-5 h-5 text-green-400" />
 							</div>
 							<h3 className="text-xl font-semibold text-white mb-4">
 								{pair.solutionTitle}
 							</h3>
 						</div>
-						<p className="text-gray-100 text-base leading-relaxed">
+						<p className="text-gray-100 text-base leading-relaxed relative z-10">
 							{pair.solutionDesc}
 						</p>
 					</div>
@@ -193,7 +193,8 @@ export default function ProblemSolution({ language }: { language: Language }) {
 	};
 
 	return (
-		<section className={`py-10 relative overflow-hidden`}>
+		<section className={`py-16 lg:py-20 relative overflow-hidden bg-black`}>
+			<div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-orange-500/30"></div>
 			<div className="container mx-auto px-4 relative z-10">
 				<div className="max-w-6xl mx-auto">
 					{/* Header */}

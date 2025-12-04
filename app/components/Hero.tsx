@@ -1,7 +1,16 @@
+"use client";
+import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Zap } from "lucide-react";
 
 export default function Hero({ language }: { language: "en" | "de" }) {
+	const videoRef = useRef<HTMLVideoElement>(null);
+
+	useEffect(() => {
+		if (videoRef.current) {
+			videoRef.current.playbackRate = 0.7; // Slow down to 70% speed
+		}
+	}, []);
 	const content = {
 		en: {
 			title: "We bring spatial AI to freight forwarding",
@@ -25,6 +34,7 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 					{/* Video */}
 					<div className="flex-1 flex items-center justify-center">
 						<video
+							ref={videoRef}
 							autoPlay
 							loop
 							muted
