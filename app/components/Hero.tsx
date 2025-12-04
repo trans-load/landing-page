@@ -19,17 +19,24 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 		content[language as keyof typeof content];
 
 	return (
-		<section className="relative py-20 lg:py-32 overflow-hidden">
-			{/* Background */}
-			<div className="absolute inset-0 z-0">
-				<div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-700"></div>
-				<div className="absolute inset-0 bg-[url('/bg_image.png')] bg-cover bg-center opacity-30"></div>
-			</div>
+		<section className="relative py-20 lg:py-32 overflow-hidden bg-black">
+			<div className="container mx-auto px-4">
+				<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+					{/* Video */}
+					<div className="flex-1 flex items-center justify-center">
+						<video
+							autoPlay
+							loop
+							muted
+							playsInline
+							className="w-full max-w-2xl h-auto object-contain"
+						>
+							<source src="/video.mp4" type="video/mp4" />
+						</video>
+					</div>
 
-			<div className="container mx-auto px-4 relative z-10">
-				<div className="max-w-4xl mx-auto flex justify-center">
-					{/* Card */}
-					<div className="backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 px-8 py-10 w-full text-center">
+					{/* Text Content */}
+					<div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
 							<span className="text-white">
 								{title.split(" ").slice(0, -3).join(" ")}
@@ -38,8 +45,8 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 							<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
 								{title.split(" ").slice(-3).join(" ")}
 							</span>
-						</h1>{" "}
-						<p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+						</h1>
+						<p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl">
 							{description}
 						</p>
 						<Button
