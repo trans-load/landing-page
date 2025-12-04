@@ -1,7 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import { SectionProvider } from "./context/SectionContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import ProblemSolution from "./components/ProblemSolution";
 import HowItWorks from "./components/HowItWorks";
 import Benefits from "./components/Benefits";
 import Team from "./components/Team";
@@ -17,17 +19,19 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div className="min-h-screen bg-gray-900 text-white">
-			<Header language={language} setLanguage={setLanguage} />
-			<main>
-				<Hero language={language} />
-				<HowItWorks language={language} />
-				<Benefits language={language} />
-				<Team language={language} />
-				<GetInTouch />
-				<Partners />
-				<Footer language={language} />
-			</main>
-		</div>
+		<SectionProvider>
+			<div className="min-h-screen bg-gray-900 text-white">
+				<Header language={language} setLanguage={setLanguage} />
+				<main>
+					<Hero language={language} />
+					<ProblemSolution language={language} />
+					<Benefits language={language} />
+					<Team language={language} />
+					<GetInTouch language={language} />
+					<Partners />
+					<Footer language={language} />
+				</main>
+			</div>
+		</SectionProvider>
 	);
 }

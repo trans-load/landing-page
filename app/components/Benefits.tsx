@@ -1,35 +1,41 @@
 "use client";
 import { motion } from "framer-motion";
-import { FileText, Truck, BarChart2, ShieldCheck, SmilePlus } from "lucide-react";
+import {
+	FileText,
+	Truck,
+	BarChart2,
+	ShieldCheck,
+	SmilePlus,
+} from "lucide-react";
 
 type Language = "en" | "de";
 
 const content: Record<Language, { title: string; benefitList: string[] }> = {
-	en: { 
+	en: {
 		title: "Your Benefit",
-		benefitList:[
+		benefitList: [
 			"Accurate invoicing with customers and partners",
 			"Optimized dispatching and truck loading through precise data",
 			"Reduced operational costs with automated measurement processes",
 			"GDPR-compliant by design, ensuring data privacy and secure processing",
-		]
+		],
 	},
 	de: {
 		title: "Ihr Vorteil",
-		benefitList:[
+		benefitList: [
 			"Fundierte Abrechnung mit Kunden und Partnern",
 			"Optimierte Disposition durch exakte Daten",
 			"Optimierte Ladeplanung und reduzierte Betriebskosten durch automatisierte Vermessung",
 			"Datenschutzkonform nach DSGVO – für höchste Sicherheit und Privatsphäre",
-		]
-	}
+		],
+	},
 };
 
 export default function Benefits({ language }: { language: "en" | "de" }) {
 	const { title, benefitList } = content[language];
 	const icons = [FileText, Truck, BarChart2, ShieldCheck];
 	return (
-		<section className="py-10 bg-gray-800 overflow-hidden">
+		<section className="py-10 overflow-hidden">
 			{/* Background decorative elements */}
 			<div className="absolute inset-0 opacity-30">
 				<div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl"></div>
@@ -45,12 +51,10 @@ export default function Benefits({ language }: { language: "en" | "de" }) {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16"
 				>
-						<div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-400/10 border border-orange-500/20 rounded-full text-orange-500 text-sm font-medium mb-4">
-							<SmilePlus className="w-5 h-5" />
-						</div>
-						<h2 className="text-3xl md:text-4xl font-bold text-white">
-							{title}
-						</h2>
+					<div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-400/10 border border-orange-500/20 rounded-full text-orange-500 text-sm font-medium mb-4">
+						<SmilePlus className="w-5 h-5" />
+					</div>
+					<h2 className="text-3xl md:text-4xl font-bold text-white">{title}</h2>
 				</motion.div>
 
 				<div className="max-w-4xl mx-auto">

@@ -1,8 +1,22 @@
+"use client";
+
 import { Hand } from "lucide-react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 
-export default function GetInTouch() {
+type Language = "en" | "de";
+
+const content: Record<Language, { title: string }> = {
+	en: {
+		title: "Book demo",
+	},
+	de: {
+		title: "Demo buchen",
+	},
+};
+
+export default function GetInTouch({ language }: { language: Language }) {
+	const { title } = content[language];
 	useEffect(() => {
 		(async function () {
 			const cal = await getCalApi({ namespace: "meet" });
@@ -18,13 +32,13 @@ export default function GetInTouch() {
 	}, []);
 
 	return (
-		<section id="meeting" className="pt-14 relative overflow-hidden bg-gray-800">
+		<section id="meeting" className="pt-14 relative overflow-hidden">
 			{/* Section Header */}
 			<div className="text-center mb-8">
 				<div className="inline-flex items-center px-4 py-2 bg-orange-400/10 border border-orange-500/20 rounded-full text-orange-500 text-sm font-medium mb-4">
 					<Hand className="w-6 h-6" />
 				</div>
-				<h2 className="text-4xl font-bold text-white mx-4">Let's talk</h2>
+				<h2 className="text-4xl font-bold text-white mx-4">{title}</h2>
 			</div>
 			<Cal
 				namespace="meet"

@@ -5,16 +5,18 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 	const content = {
 		en: {
 			title: "We bring spatial AI to freight forwarding",
-			description:
-				"Precise freight measurements – without additional hardware",
+			description: "Precise freight measurements – without additional hardware",
+			callToAction: "Book demo",
 		},
 		de: {
 			title: "Die KI für Ihr Umschlaglager",
 			description: "Exakte Frachtvermessung – ganz ohne zusätzliche Hardware",
+			callToAction: "Demo buchen",
 		},
 	};
 
-	const { title, description } = content[language as keyof typeof content];
+	const { title, description, callToAction } =
+		content[language as keyof typeof content];
 
 	return (
 		<section className="relative py-20 lg:py-32 overflow-hidden">
@@ -51,7 +53,7 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 							className="inline-flex items-center space-x-2 px-8 py-4 text-lg font-bold rounded-full shadow-lg transition-all duration-300 hover:shadow-2xl focus:outline-none
 							 backdrop-blur-md border bg-orange-400/10 border-orange-500/20 text-orange-500 hover:bg-orange-400/20 hover:border-orange-500"
 						>
-							<span className="drop-shadow-md">Let's talk</span>
+							<span className="drop-shadow-md">{callToAction}</span>
 							<ArrowDown className="w-6 h-6 animate-bounce" />
 						</Button>
 					</div>
