@@ -178,18 +178,8 @@ function FlipCard({
 	);
 }
 
-export default function ProblemSolution({
-	language,
-	sectionIndex,
-	bgColor,
-}: {
-	language: Language;
-	sectionIndex: number;
-	bgColor?: string;
-}) {
+export default function ProblemSolution({ language }: { language: Language }) {
 	const { pairs } = content[language];
-	const defaultBg = useSectionBg(sectionIndex);
-	const finalBg = bgColor || defaultBg;
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const handleSwipe = (direction: number) => {
@@ -202,7 +192,7 @@ export default function ProblemSolution({
 	};
 
 	return (
-		<section className={`py-20 ${finalBg} relative overflow-hidden`}>
+		<section className={`py-20 relative overflow-hidden`}>
 			<div className="container mx-auto px-4 relative z-10">
 				<div className="max-w-6xl mx-auto">
 					{/* Header */}
@@ -213,11 +203,11 @@ export default function ProblemSolution({
 						transition={{ duration: 0.6 }}
 						className="text-center mb-12"
 					>
-                        <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                            {language === "en"
-                                ? "Wrong dimensions = lost revenue"
-                                : "Falsche Abmessungen = verlorenes Geld"}
-                        </h3>
+						<h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+							{language === "en"
+								? "Wrong dimensions = lost revenue"
+								: "Falsche Abmessungen = verlorenes Geld"}
+						</h3>
 					</motion.div>
 
 					{/* Cards Grid - Desktop */}

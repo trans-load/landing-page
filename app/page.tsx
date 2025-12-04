@@ -23,12 +23,12 @@ export default function Home() {
 			<div className="min-h-screen bg-gray-900 text-white">
 				<Header language={language} setLanguage={setLanguage} />
 				<main>
-					<Hero language={language} sectionIndex={0} />
-					<ProblemSolution language={language} sectionIndex={1} />
-					<Benefits language={language} sectionIndex={3} />
-					<Team language={language} sectionIndex={4} />
-					<GetInTouch sectionIndex={5} />
-					<Partners sectionIndex={6} />
+					<Hero language={language} />
+					<ProblemSolution language={language} />
+					<Benefits language={language} />
+					<Team language={language} />
+					<GetInTouch />
+					<Partners />
 					<Footer language={language} />
 				</main>
 			</div>
