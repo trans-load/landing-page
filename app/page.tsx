@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import ProblemSolution from "./components/ProblemSolution";
 import HowItWorks from "./components/HowItWorks";
 import Benefits from "./components/Benefits";
 import Team from "./components/Team";
@@ -21,6 +22,7 @@ export default function Home() {
 			<Header language={language} setLanguage={setLanguage} />
 			<main>
 				<Hero language={language} />
+				<ProblemSolution language={language} />
 				<HowItWorks language={language} />
 				<Benefits language={language} />
 				<Team language={language} />
