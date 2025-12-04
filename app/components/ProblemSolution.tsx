@@ -85,7 +85,7 @@ export default function ProblemSolution({ language }: { language: Language }) {
 										{/* Impact number */}
 										<div className="inline-block mb-3 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30">
 											<span className="text-red-300 text-sm font-semibold">
-												{index === 0 ? "Up to -5%" : "25% affected"}
+                                                {language === "de" ? (index === 0 ? "Bis zu -5% Umsatzeinbußen" : "25% betroffen") : (index === 0 ? "Up to -5% revenue loss" : "25% affected")}
 											</span>
 										</div>
 
