@@ -25,7 +25,6 @@ export default function Home() {
 				<main>
 					<Hero language={language} sectionIndex={0} />
 					<ProblemSolution language={language} sectionIndex={1} />
-					<HowItWorks language={language} sectionIndex={2} />
 					<Benefits language={language} sectionIndex={3} />
 					<Team language={language} sectionIndex={4} />
 					<GetInTouch sectionIndex={5} />
