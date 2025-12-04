@@ -11,6 +11,7 @@ import {
 	Code2,
 	ChevronLeft,
 	ChevronRight,
+	Target,
 } from "lucide-react";
 import { useSectionBg } from "../context/SectionContext";
 
@@ -36,7 +37,7 @@ const content: Record<
 				problemIcon: TrendingDown,
 				problemTitle: "Lost Revenue from Poor Data Quality",
 				problemDesc:
-					"Freight Forwarders lose up to 5% of revenue because 25% of freight has missing or wrong dimensioning data.",
+					"Freight Forwarders lose up to 5% of revenue because they incorrectly bill customers and partners due to wrong dimensioning data.",
 				solutionIcon: ZapIcon,
 				solutionTitle: "AI-Powered Dimension Detection",
 				solutionDesc:
@@ -70,7 +71,7 @@ const content: Record<
 				problemIcon: TrendingDown,
 				problemTitle: "Umsatzverluste durch schlechte Datenqualität",
 				problemDesc:
-					"Speditionen verlieren bis zu 5% ihres Umsatzes, weil 25% der Fracht fehlende oder falsche Abmessungsdaten hat.",
+					"Speditionen verlieren bis zu 5% ihres Umsatzes, weil sie durch falsche Abmessungsdaten falsch mit Kunden und Partnern abrechnen.",
 				solutionIcon: ZapIcon,
 				solutionTitle: "KI-gestützte Dimensionserkennung",
 				solutionDesc:
@@ -136,7 +137,7 @@ function FlipCard({
 						backfaceVisibility: "hidden",
 					}}
 				>
-					<div className="relative backdrop-blur-sm bg-red-500/5 border border-red-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
+					<div className="relative backdrop-blur-sm bg-red-900/5 border border-red-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
 						<div>
 							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full bg-red-500/20 border border-red-500/30">
 								<pair.problemIcon className="w-5 h-5 text-red-400" />
@@ -159,10 +160,10 @@ function FlipCard({
 						transform: "rotateY(180deg)",
 					}}
 				>
-					<div className="relative backdrop-blur-sm bg-orange-500/5 border border-orange-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
+					<div className="relative backdrop-blur-sm bg-green-900/5 border border-green-500/20 rounded-2xl p-8 h-full flex flex-col justify-between ">
 						<div>
-							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full bg-orange-500/20 border border-orange-500/30">
-								<pair.solutionIcon className="w-5 h-5 text-orange-400" />
+							<div className="inline-flex items-center justify-center mb-4 w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30">
+								<pair.solutionIcon className="w-5 h-5 text-green-400" />
 							</div>
 							<h3 className="text-xl font-semibold text-white mb-4">
 								{pair.solutionTitle}
@@ -192,22 +193,25 @@ export default function ProblemSolution({ language }: { language: Language }) {
 	};
 
 	return (
-		<section className={`py-20 relative overflow-hidden`}>
+		<section className={`py-10 relative overflow-hidden`}>
 			<div className="container mx-auto px-4 relative z-10">
 				<div className="max-w-6xl mx-auto">
 					{/* Header */}
 					<motion.div
-						initial={{ opacity: 0, y: -20 }}
+						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
 						transition={{ duration: 0.6 }}
-						className="text-center mb-12"
+						viewport={{ once: true }}
+						className="text-center mb-16"
 					>
-						<h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+						<div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-400/10 border border-orange-500/20 rounded-full text-orange-500 text-sm font-medium mb-4">
+							<Target className="w-5 h-5" />
+						</div>
+						<h2 className="text-3xl md:text-4xl font-bold text-white">
 							{language === "en"
-								? "Wrong dimensions = lost revenue"
-								: "Falsche Abmessungen = verlorenes Geld"}
-						</h3>
+								? "Better dimensions, better margins"
+								: "Bessere Abmessungen, bessere Marge"}
+						</h2>
 					</motion.div>
 
 					{/* Cards Grid - Desktop */}
