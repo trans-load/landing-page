@@ -27,7 +27,7 @@ export default function Home() {
 					<ProblemSolution language={language} />
 					<Benefits language={language} />
 					<Team language={language} />
-					<GetInTouch />
+					<GetInTouch language={language} />
 					<Partners />
 					<Footer language={language} />
 				</main>
