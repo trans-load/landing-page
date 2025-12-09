@@ -18,17 +18,17 @@ const content: Record<
 	}
 > = {
 	en: {
-		title: "The Problem",
+		title: "How Incorrect Freight Dimensions Cost You Money",
 		problems: [
 			{
 				icon: TrendingDown,
-				title: "Lost Revenue from Poor Data Quality",
+				title: "Incorrect billing leads to revenue loss",
 				description:
 					"Up to 5% revenue loss due to incorrect billing caused by inaccurate freight dimensions. Every wrong measurement costs money.",
 			},
 			{
 				icon: Truck,
-				title: "Inefficient Route & Load Planning",
+				title: "Inefficient Truck Utilization",
 				description:
 					"Without accurate dimensions, optimal truck loading and route planning is impossible — driving down truck utilization and driving up costs.",
 			},
@@ -41,23 +41,23 @@ const content: Record<
 		],
 	},
 	de: {
-		title: "Das Problem",
+		title: "Wie falsche Frachtmaße teuer werden",
 		problems: [
 			{
 				icon: TrendingDown,
-				title: "Umsatzverluste durch schlechte Datenqualität",
+				title: "Falsche Abrechnung führt zu Umsatzverlusten",
 				description:
 					"Bis zu 5% Umsatzverlust durch falsche Abrechnung aufgrund ungenauer Frachtabmessungen. Jede falsche Vermessung kostet Geld.",
 			},
 			{
 				icon: Truck,
-				title: "Ineffiziente Planung & Auslastung",
+				title: "Ineffiziente LKW-Auslastung",
 				description:
-					"Ohne präzise Abmessungen ist eine optimale Ladeplanung nicht möglich. Die Folge: geringe LKW-Auslastung und unnötig hohe Kosten.",
+					"Ohne präzise Frachtmaße ist eine optimale Ladeplanung nicht möglich. Die Folge: geringe LKW-Auslastung und unnötig hohe Kosten.",
 			},
 			{
 				icon: HardDrive,
-				title: "Teure Hardware-Abhängigkeiten",
+				title: "Vermessungshardware ist teuer",
 				description:
 					"Herkömmliche Vermessungslösungen erfordern teure Hardware-Installationen und komplexe Integrationsprozesse.",
 			},
