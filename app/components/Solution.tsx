@@ -18,49 +18,47 @@ const content: Record<
 	}
 > = {
 	en: {
-		title: "The Solution",
+		title: "Accurate Freight Dimensions, Effortless",
 		solutions: [
 			{
 				icon: ZapIcon,
-				title: "AI-Powered Dimension Detection",
+				title: "AI-Powered Freight Dimensioning",
 				description:
-					"Automatic, precise dimension detection using your existing cameras. GDPR-compliant – your data stays secure and confidential. Eliminate billing errors and revenue loss.",
+					"Our AI enables automatic and precise freight dimensioning using your existing surveillance cameras. Eliminate billing errors and maximize your truck utilization.",
 			},
 			{
-				icon: Gauge,
-				title: "Smart Load Optimization",
+				icon: ShieldCheck,
+				title: "GDPR-Compliant",
 				description:
-					"Real-time accurate dimensions enable perfect truck loading and optimal route planning. Maximize capacity utilization and reduce costs.",
+					"GDPR-compliant by design – your data stays secure and confidential. Your data is processed securely and confidentially.",
 			},
 			{
 				icon: Code2,
-				title: "Software-Only Solution",
-				description:
-					"No hardware investment required. Works with your existing camera infrastructure. Easy integration, intelligent software, immediate results.",
-			},
+				title: "No Hardware Investments",
+				description: "No new hardware required: Our AI works with your existing surveillance camera infrastructure. Easy integration, smart software, instant results."
+			}
 		],
 	},
 	de: {
-		title: "Die Lösung",
+		title: "Korrekte Fachtmaße wie aus Zauberhand",
 		solutions: [
 			{
 				icon: ZapIcon,
-				title: "KI-gestützte Dimensionserkennung",
+				title: "KI-gestützte Frachtvermessung",
 				description:
-					"Automatische, präzise Dimensionserkennung mit Ihrer vorhandenen Kamerainfrastruktur. DSGVO-konform – Ihre Daten bleiben sicher und vertraulich. Eliminieren Sie Abrechnungsfehler und Umsatzverluste.",
+					"Unsere KI ermöglicht eine automatische und präzise Frachtvermessung mit Ihren bestehenden Überwachungskameras. So vermeiden Sie Abrechnungsfehler und steigern gleichzeitig die Auslastung Ihrer LKW.",
 			},
 			{
-				icon: Gauge,
-				title: "Intelligente Auslastungsoptimierung",
+				icon: ShieldCheck,
+				title: "DSGVO-konform",
 				description:
-					"Echtzeitdaten ermöglichen perfekte Ladeplanung und optimale Tourenplanung. Maximieren Sie die LKW-Auslastung und reduzieren Sie Kosten.",
+					"Datenschutzkonform nach DSGVO – für höchste Sicherheit und Privatsphäre. Ihre Daten werden sicher und vertraulich verarbeitet.",
 			},
 			{
 				icon: Code2,
-				title: "Reine Software-Lösung",
-				description:
-					"Keine Hardware-Investition nötig. Funktioniert mit Ihrer vorhandenen Kamerainfrastruktur. Einfache Integration, intelligente Software, sofortige Ergebnisse.",
-			},
+				title: "Keine Hardware-Investitionen",
+				description: "Keine neue Hardware erforderlich: Unsere KI nutzt Ihre bestehende Überwachungskamera-Infrastruktur. Einfach integrieren, intelligent nutzen, sofort Ergebnisse erhalten."
+			  }			  
 		],
 	},
 };

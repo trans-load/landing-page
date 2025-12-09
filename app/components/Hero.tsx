@@ -7,14 +7,32 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 	const videoRef = useRef<HTMLVideoElement>(null);
 
 	useEffect(() => {
-		if (videoRef.current) {
-			videoRef.current.playbackRate = 0.7; // Slow down to 70% speed
-			// Ensure autoplay works, especially on mobile
-			videoRef.current.play().catch((error) => {
-				// Autoplay was prevented, but the attributes will handle it
+		const video = videoRef.current;
+		if (!video) return;
+
+		// Ensure video is muted for autoplay on mobile
+		video.muted = true;
+		video.playbackRate = 0.7; // Slow down to 70% speed
+
+		// Try to play when video can start playing
+		const attemptPlay = () => {
+			video.play().catch((error) => {
+				// Silently handle autoplay prevention
 				console.log("Video autoplay prevented:", error);
 			});
-		}
+		};
+
+		// Try immediately
+		attemptPlay();
+
+		// Also try when video is ready
+		video.addEventListener("canplay", attemptPlay, { once: true });
+		video.addEventListener("loadeddata", attemptPlay, { once: true });
+
+		return () => {
+			video.removeEventListener("canplay", attemptPlay);
+			video.removeEventListener("loadeddata", attemptPlay);
+		};
 	}, []);
 	const content = {
 		en: {
@@ -44,6 +62,7 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 							loop
 							muted
 							playsInline
+							preload="auto"
 							className="w-full max-w-2xl h-auto object-contain"
 						>
 							<source src="/video.mp4" type="video/mp4" />
