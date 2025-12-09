@@ -9,6 +9,11 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 	useEffect(() => {
 		if (videoRef.current) {
 			videoRef.current.playbackRate = 0.7; // Slow down to 70% speed
+			// Ensure autoplay works, especially on mobile
+			videoRef.current.play().catch((error) => {
+				// Autoplay was prevented, but the attributes will handle it
+				console.log("Video autoplay prevented:", error);
+			});
 		}
 	}, []);
 	const content = {
