@@ -46,7 +46,7 @@ const content: Record<
 				icon: ZapIcon,
 				title: "KI-gestützte Frachtvermessung",
 				description:
-					"Unsere KI ermöglicht eine automatische und präzise Frachtvermessung mit Ihren bestehenden Überwachungskameras. So vermeiden Sie Abrechnungsfehler und steigern gleichzeitig die Auslastung Ihrer LKW.",
+					"Unsere KI ermöglicht eine automatische und präzise Frachtvermessung mit Ihren bestehenden Überwachungskameras. So vermeiden Sie Abrechnungsfehler und steigern gleichzeitig die Auslastung Ihrer LKWs.",
 			},
 			{
 				icon: ShieldCheck,
