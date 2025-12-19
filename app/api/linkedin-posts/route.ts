@@ -12,20 +12,22 @@ const LINKEDIN_COMPANY_URL = "https://www.linkedin.com/company/trans-load";
 
 // LinkedIn post URLs - these are the actual posts from the company page
 const MANUAL_POST_URLS: string[] = [
+	"https://www.linkedin.com/feed/update/urn:li:activity:7407749504197902337",
+	"https://www.linkedin.com/feed/update/urn:li:activity:7405179220962009088",
+	"https://www.linkedin.com/feed/update/urn:li:activity:7404819503622307842",
 	"https://www.linkedin.com/feed/update/urn:li:activity:7401637645799305217",
-	"https://www.linkedin.com/feed/update/urn:li:activity:7389609528142499840",
 	"https://www.linkedin.com/feed/update/urn:li:activity:7387783613838295040",
-	"https://www.linkedin.com/feed/update/urn:li:activity:7381592911987077121",
 	"https://www.linkedin.com/feed/update/urn:li:activity:7368988364412190720",
 	"https://www.linkedin.com/feed/update/urn:li:activity:7335734971724132352",
 ];
 
 // Post timestamps for sorting (optional - used to maintain chronological order)
 const POST_TIMESTAMPS: Record<string, string> = {
+	"7407749504197902337": new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString(), // 1 hour ago
+	"7405179220962009088": new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
+	"7404819503622307842": new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(), // 3 days ago
 	"7401637645799305217": new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString(), // 6 days ago
-	"7389609528142499840": new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(), // ~1 month ago
 	"7387783613838295040": new Date(Date.now() - 45 * 24 * 60 * 60 * 1000).toISOString(), // ~1.5 months ago
-	"7381592911987077121": new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString(), // ~2 months ago
 	"7368988364412190720": new Date(Date.now() - 90 * 24 * 60 * 60 * 1000).toISOString(), // ~3 months ago
 	"7335734971724132352": new Date(Date.now() - 120 * 24 * 60 * 60 * 1000).toISOString(), // ~4 months ago
 };
