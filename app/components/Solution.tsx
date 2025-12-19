@@ -40,7 +40,7 @@ const content: Record<
 		],
 	},
 	de: {
-		title: "Korrekte Fachtmaße wie aus Zauberhand",
+		title: "Korrekte Frachtmaße wie aus Zauberhand",
 		solutions: [
 			{
 				icon: ZapIcon,
