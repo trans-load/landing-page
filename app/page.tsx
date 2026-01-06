@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Problem from "./components/Problem";
 import Solution from "./components/Solution";
+import HowItWorks from "./components/HowItWorks";
 import Team from "./components/Team";
 import GetInTouch from "./components/GetInTouch";
 import Partners from "./components/Partners";
@@ -26,6 +27,7 @@ export default function Home() {
 					<Hero language={language} />
 					<Problem language={language} />
 					<Solution language={language} />
+					<HowItWorks language={language} />
 					<Team language={language} />
 					<Partners language={language} />
 					<LinkedIn language={language} />
