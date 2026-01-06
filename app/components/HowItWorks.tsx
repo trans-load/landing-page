@@ -35,7 +35,7 @@ const content: Record<
 			{
 				title: "Identify Scanned Pallet",
 				description:
-					"We sync scan position and anonymized camera frames to reliably identify the scanned pallet — even in busy cross-docks.",
+					"We sync scan position and camera frames to reliably identify the scanned pallet.",
 			},
 			{
 				title: "Build 3D Model",
@@ -67,7 +67,7 @@ const content: Record<
 			{
 				title: "Gescannte Palette identifizieren",
 				description:
-					"Wir verbinden Scan-Position und anonymisierte Kamerabilder, sodass die gescannte Palette eindeutig identifiziert wird – selbst unter hohem Betriebsaufkommen.",
+					"Scan-Positionen und Kamerabilder werden kombiniert, um jede Palette eindeutig zu identifizieren.",
 			},
 			{
 				title: "3D-Modell erzeugen",
