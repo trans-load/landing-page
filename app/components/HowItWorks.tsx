@@ -30,17 +30,17 @@ const content: Record<
 			{
 				title: "Match to Camera",
 				description:
-					"Using the position of the scan, we automatically pick the surveillance camera that captured the pallet.",
+					"Using the scan position, we automatically pick the surveillance camera that captured the pallet and anonymize people in a GDPR-compliant way.",
 			},
 			{
 				title: "Identify Scanned Pallet",
 				description:
-					"We sync scan position and camera frames to reliably identify the scanned pallet — even in busy cross-docks.",
+					"We sync scan position and anonymized camera frames to reliably identify the scanned pallet — even in busy cross-docks.",
 			},
 			{
 				title: "Build 3D Model",
 				description:
-					"Our spatial AI system reconstructs a detailed 3D model of the pallet and its load from the camera images.",
+					"Our spatial AI system reconstructs a detailed 3D model of the pallet and its load from the anonymized camera images.",
 			},
 			{
 				title: "Extract Dimensions",
@@ -62,17 +62,17 @@ const content: Record<
 			{
 				title: "Kamera zuordnen",
 				description:
-					"Anhand der Position wählen wir automatisch die Überwachungskamera aus, die die Palette erfasst hat.",
+					"Anhand der Scan-Position wählen wir automatisch die Überwachungskamera aus, die die Palette erfasst hat, und anonymisieren Personen DSGVO-konform.",
 			},
 			{
 				title: "Gescannte Palette identifizieren",
 				description:
-					"Wir verbinden Scan-Position und Kamerabilder, sodass die gescannte Palette eindeutig identifiziert wird – selbst unter hohem Betriebsaufkommen.",
+					"Wir verbinden Scan-Position und anonymisierte Kamerabilder, sodass die gescannte Palette eindeutig identifiziert wird – selbst unter hohem Betriebsaufkommen.",
 			},
 			{
 				title: "3D-Modell erzeugen",
 				description:
-					"Unser Spatial AI-Modell erstellt aus den Kamerabildern ein detailliertes 3D-Modell der gescannten Palette und der Ladung.",
+					"Unser Spatial AI-Modell erstellt aus den anonymisierten Kamerabildern ein detailliertes 3D-Modell der gescannten Palette und der Ladung.",
 			},
 			{
 				title: "Maße auslesen",
