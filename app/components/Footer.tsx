@@ -7,7 +7,7 @@ export default function Footer({ language }: { language: "en" | "de" }) {
 			<div className="max-w-4xl mx-auto flex flex-col gap-6 md:flex-row md:justify-between md:items-center">
 				<div className="flex flex-col items-center md:items-start gap-2">
 					<p className="text-sm opacity-80">
-						&copy; 2025 transload. All rights reserved.
+						&copy; 2026 transload. All rights reserved.
 					</p>
 				</div>
 				<div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
