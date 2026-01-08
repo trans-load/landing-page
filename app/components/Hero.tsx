@@ -22,9 +22,35 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 	return (
 		<section className="relative py-20 lg:py-32 overflow-hidden bg-gray-900">
 			<div className="container mx-auto px-4">
-				<div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
+				<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+					{/* Video - Glassy Apple Style */}
+					<div className="flex-1 flex items-center justify-center">
+						<div className="relative w-full max-w-xl">
+							{/* Background gradient that shows through glass */}
+							<div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/20 via-orange-400/10 to-transparent blur-2xl -z-10" />
+							
+							{/* Glassy container */}
+							<div className="relative rounded-2xl overflow-hidden backdrop-blur-2xl bg-white/10 border border-white/20 shadow-2xl" style={{
+								boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.1)',
+								background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)'
+							}}>
+								{/* Inner highlight for glass effect */}
+								<div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent pointer-events-none rounded-2xl" />
+								
+								<video
+									src="/transload.mov"
+									autoPlay
+									loop
+									muted
+									playsInline
+									className="w-full h-auto object-contain block relative z-10"
+								/>
+							</div>
+						</div>
+					</div>
+
 					{/* Text Content */}
-					<div className="flex flex-col items-center">
+					<div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
 							<span className="text-white">
 								{title.split(" ").slice(0, -3).join(" ")}
