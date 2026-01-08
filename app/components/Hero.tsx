@@ -22,26 +22,9 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 	return (
 		<section className="relative py-20 lg:py-32 overflow-hidden bg-gray-900">
 			<div className="container mx-auto px-4">
-				<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-					{/* Animation */}
-					<div className="flex-1 flex items-center justify-center">
-						<div className="relative w-full max-w-xl">
-							{/* Video container with border */}
-							<div className="relative rounded-2xl overflow-hidden border border-orange-500/30 bg-gray-800/60 backdrop-blur-sm p-2">
-								<video
-									src="/transload.mov"
-									autoPlay
-									loop
-									muted
-									playsInline
-									className="w-full h-auto object-contain block rounded-xl"
-								/>
-							</div>
-						</div>
-					</div>
-
+				<div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
 					{/* Text Content */}
-					<div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+					<div className="flex flex-col items-center">
 						<h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
 							<span className="text-white">
 								{title.split(" ").slice(0, -3).join(" ")}
