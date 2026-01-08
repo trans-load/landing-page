@@ -16,7 +16,7 @@ export default function Partners({ language = "de" }: { language?: Language }) {
 	const { title } = content[language];
 
 	return (
-		<section className="py-16 lg:py-20 bg-black relative">
+		<section className="py-16 lg:py-20 bg-gray-900 relative">
 			<div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-orange-500/30"></div>
 			
 			{/* Background decorative elements */}

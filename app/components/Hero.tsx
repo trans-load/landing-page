@@ -1,48 +1,17 @@
 "use client";
-import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Zap } from "lucide-react";
 
 export default function Hero({ language }: { language: "en" | "de" }) {
-	const videoRef = useRef<HTMLVideoElement>(null);
-
-	useEffect(() => {
-		const video = videoRef.current;
-		if (!video) return;
-
-		// Ensure video is muted for autoplay on mobile
-		video.muted = true;
-		video.playbackRate = 0.7; // Slow down to 70% speed
-
-		// Try to play when video can start playing
-		const attemptPlay = () => {
-			video.play().catch((error) => {
-				// Silently handle autoplay prevention
-				console.log("Video autoplay prevented:", error);
-			});
-		};
-
-		// Try immediately
-		attemptPlay();
-
-		// Also try when video is ready
-		video.addEventListener("canplay", attemptPlay, { once: true });
-		video.addEventListener("loadeddata", attemptPlay, { once: true });
-
-		return () => {
-			video.removeEventListener("canplay", attemptPlay);
-			video.removeEventListener("loadeddata", attemptPlay);
-		};
-	}, []);
 	const content = {
 		en: {
-			title: "We bring spatial AI to freight forwarding",
-			description: "Precise freight measurements – without additional hardware",
+			title: "Freight Measurements with Spatial AI",
+			description: "Precise freight measurements for your cross-dock – without additional hardware",
 			callToAction: "Book demo",
 		},
 		de: {
-			title: "Die KI für Ihr Umschlaglager",
-			description: "Exakte Frachtvermessung – ganz ohne zusätzliche Hardware",
+			title: "Frachtvermesssung mit Spatial AI",
+			description: "Exakte Frachtvermessung für Ihr Umschlaglager – ganz ohne zusätzliche Hardware",
 			callToAction: "Demo buchen",
 		},
 	};
@@ -51,22 +20,24 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 		content[language as keyof typeof content];
 
 	return (
-		<section className="relative py-20 lg:py-32 overflow-hidden bg-black">
+		<section className="relative py-20 lg:py-32 overflow-hidden bg-gray-900">
 			<div className="container mx-auto px-4">
 				<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-					{/* Video */}
+					{/* Animation */}
 					<div className="flex-1 flex items-center justify-center">
-						<video
-							ref={videoRef}
-							autoPlay
-							loop
-							muted
-							playsInline
-							preload="auto"
-							className="w-full max-w-2xl h-auto object-contain"
-						>
-							<source src="/video.mp4" type="video/mp4" />
-						</video>
+						<div className="relative w-full max-w-xl">
+							{/* Video container with border */}
+							<div className="relative rounded-2xl overflow-hidden border border-orange-500/30 bg-gray-800/60 backdrop-blur-sm p-2">
+								<video
+									src="/transload.mov"
+									autoPlay
+									loop
+									muted
+									playsInline
+									className="w-full h-auto object-contain block rounded-xl"
+								/>
+							</div>
+						</div>
 					</div>
 
 					{/* Text Content */}
