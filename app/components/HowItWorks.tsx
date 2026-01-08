@@ -112,24 +112,22 @@ export default function HowItWorks({ language }: { language: Language }) {
 
 					{/* Steps – horizontal on desktop, vertical on mobile */}
 					{/* Desktop: horizontal flow with arrows between cards */}
-					<div className="hidden lg:flex items-stretch justify-center gap-6 max-w-6xl mx-auto">
+					<div className="hidden lg:flex items-stretch justify-center gap-4 max-w-6xl mx-auto">
 						{steps.map((step, index) => {
 							const Icon = icons[index] ?? Scan;
 							const isLast = index === steps.length - 1;
 
 							return (
-								<div key={step.title} className="flex items-stretch gap-4">
+								<>
 									<motion.div
+										key={step.title}
 										initial={{ opacity: 0, y: 24 }}
 										whileInView={{ opacity: 1, y: 0 }}
 										viewport={{ once: true }}
 										transition={{ duration: 0.6, delay: index * 0.1 }}
-										className="flex-1 min-w-[220px] max-w-[260px]"
+										className="flex-1 min-w-[220px] max-w-[260px] flex"
 									>
-										<div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 shadow-lg shadow-black/30 hover:border-orange-500/40 hover:shadow-orange-500/30 transition-all duration-300 group h-full flex flex-col">
-											<div className="pointer-events-none absolute -top-4 -right-1 text-6xl font-black text-orange-500/5 group-hover:text-orange-500/10 transition-colors duration-300">
-												{index + 1}
-											</div>
+										<div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 shadow-lg shadow-black/30 hover:border-orange-500/40 hover:shadow-orange-500/30 transition-all duration-300 group flex flex-col w-full h-full">
 											<div className="relative z-10 flex flex-col p-6 gap-4 h-full">
 												<div className="flex items-center justify-between mb-1">
 													<div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl backdrop-blur-sm bg-orange-500/20 border border-orange-500/40 group-hover:bg-orange-500/30 transition-colors shadow-md shadow-orange-500/30">
@@ -139,7 +137,7 @@ export default function HowItWorks({ language }: { language: Language }) {
 												<h3 className="text-xl font-semibold text-white group-hover:text-orange-100 transition-colors">
 													{step.title}
 												</h3>
-												<p className="text-base text-gray-300 leading-relaxed">
+												<p className="text-base text-gray-300 leading-relaxed flex-1">
 													{step.description}
 												</p>
 											</div>
@@ -148,16 +146,17 @@ export default function HowItWorks({ language }: { language: Language }) {
 
 									{!isLast && (
 										<motion.div
+											key={`arrow-${index}`}
 											initial={{ opacity: 0, x: -8 }}
 											whileInView={{ opacity: 1, x: 0 }}
 											viewport={{ once: true }}
 											transition={{ duration: 0.4, delay: index * 0.1 + 0.1 }}
-											className="flex items-center"
+											className="flex items-center justify-center flex-shrink-0 self-center"
 										>
-											<ArrowRight className="w-5 h-5 text-orange-400" />
+											<ArrowRight className="w-6 h-6 text-orange-400" />
 										</motion.div>
 									)}
-								</div>
+								</>
 							);
 						})}
 					</div>
@@ -177,9 +176,6 @@ export default function HowItWorks({ language }: { language: Language }) {
 										transition={{ duration: 0.6, delay: index * 0.1 }}
 										className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 shadow-lg shadow-black/30 hover:border-orange-500/40 hover:shadow-orange-500/30 transition-all duration-300 group"
 									>
-										<div className="pointer-events-none absolute -top-4 -right-1 text-6xl font-black text-orange-500/5 group-hover:text-orange-500/10 transition-colors duration-300">
-											{index + 1}
-										</div>
 										<div className="relative z-10 flex flex-col p-6 gap-4">
 											<div className="flex items-center justify-between mb-1">
 												<div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl backdrop-blur-sm bg-orange-500/20 border border-orange-500/40 group-hover:bg-orange-500/30 transition-colors shadow-md shadow-orange-500/30">
@@ -203,7 +199,7 @@ export default function HowItWorks({ language }: { language: Language }) {
 											transition={{ duration: 0.4, delay: index * 0.1 + 0.1 }}
 											className="flex items-center justify-center"
 										>
-											<ArrowRight className="w-5 h-5 text-orange-400 rotate-90" />
+											<ArrowRight className="w-6 h-6 text-orange-400 rotate-90" />
 										</motion.div>
 									)}
 								</div>
