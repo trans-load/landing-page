@@ -33,7 +33,7 @@ export default function Team({ language }: { language: "en" | "de" }) {
 	const { title } = content[language];
 
 	return (
-		<section id="team" className="py-16 lg:py-20 relative overflow-hidden bg-black">
+		<section id="team" className="py-16 lg:py-20 relative overflow-hidden bg-gray-900">
 			<div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-orange-500/30"></div>
 			<div className="container mx-auto px-4 relative z-10 max-w-5xl">
 				{/* Section Header */}

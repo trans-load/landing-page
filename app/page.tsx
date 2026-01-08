@@ -21,7 +21,7 @@ export default function Home() {
 
 	return (
 		<SectionProvider>
-			<div className="min-h-screen bg-black text-white">
+			<div className="min-h-screen bg-gray-900 text-white">
 				<Header language={language} setLanguage={setLanguage} />
 				<main>
 					<Hero language={language} />

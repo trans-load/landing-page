@@ -20,14 +20,14 @@ export default function Hero({ language }: { language: "en" | "de" }) {
 		content[language as keyof typeof content];
 
 	return (
-		<section className="relative py-20 lg:py-32 overflow-hidden bg-black">
+		<section className="relative py-20 lg:py-32 overflow-hidden bg-gray-900">
 			<div className="container mx-auto px-4">
 				<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 					{/* Animation */}
 					<div className="flex-1 flex items-center justify-center">
 						<div className="relative w-full max-w-xl">
 							{/* Video container with border */}
-							<div className="relative rounded-2xl overflow-hidden border border-orange-500/30 bg-black/40 backdrop-blur-sm p-2">
+							<div className="relative rounded-2xl overflow-hidden border border-orange-500/30 bg-gray-800/60 backdrop-blur-sm p-2">
 								<video
 									src="/transload.mov"
 									autoPlay

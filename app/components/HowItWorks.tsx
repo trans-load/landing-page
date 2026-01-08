@@ -89,7 +89,7 @@ export default function HowItWorks({ language }: { language: Language }) {
 	const { title, subtitle, badge, steps } = content[language];
 
 	return (
-		<section className="py-16 lg:py-20 relative overflow-hidden bg-black">
+		<section className="py-16 lg:py-20 relative overflow-hidden bg-gray-900">
 			<div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-orange-500/30"></div>
 
 			{/* Background decorative elements */}
