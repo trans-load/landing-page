@@ -18,6 +18,13 @@ const teamMembers = [
 		linkedin: "https://www.linkedin.com/in/jagowahl/",
 		email: "mailto:jago.wahl-schwentker@trans-load.de",
 	},
+	{
+		name: "Julius Scheel",
+		role: "Co-Founder",
+		image: "./Julius Scheel.JPEG",
+		linkedin: "https://www.linkedin.com/in/juliusscheel/",
+		email: "mailto:julius.scheel@trans-load.de",
+	},
 ];
 
 const content = {
@@ -45,11 +52,11 @@ export default function Team({ language }: { language: "en" | "de" }) {
 				</div>
 
 				{/* Team Members Grid */}
-				<div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-8 justify-items-center">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 justify-items-center">
 					{teamMembers.map((member, index) => (
 						<div
 							key={index}
-							className="group relative backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-8 shadow-lg shadow-black/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center max-w-sm w-full before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/5 before:to-transparent before:opacity-50 before:pointer-events-none"
+							className="group relative backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-8 shadow-lg shadow-black/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center max-w-[280px] sm:max-w-sm w-full before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/5 before:to-transparent before:opacity-50 before:pointer-events-none"
 						>
 							{/* Profile Image */}
 							<div className="relative mb-4 sm:mb-6 z-10">
@@ -71,7 +78,7 @@ export default function Team({ language }: { language: "en" | "de" }) {
 							</div>
 
 							{/* Social Links */}
-							<div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2 relative z-10">
+							<div className="flex flex-row justify-center gap-2 relative z-10">
 								<a
 									href={member.linkedin}
 									target="_blank"
