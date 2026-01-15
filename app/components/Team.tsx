@@ -18,6 +18,13 @@ const teamMembers = [
 		linkedin: "https://www.linkedin.com/in/jagowahl/",
 		email: "mailto:jago.wahl-schwentker@trans-load.de",
 	},
+	{
+		name: "Julius Scheel",
+		role: "Co-Founder",
+		image: "./Julius Scheel.JPEG",
+		linkedin: "https://www.linkedin.com/in/juliusscheel/",
+		email: "mailto:julius.scheel@trans-load.de",
+	},
 ];
 
 const content = {
@@ -45,7 +52,7 @@ export default function Team({ language }: { language: "en" | "de" }) {
 				</div>
 
 				{/* Team Members Grid */}
-				<div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-8 justify-items-center">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 justify-items-center">
 					{teamMembers.map((member, index) => (
 						<div
 							key={index}
